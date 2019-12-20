@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>colors</title>
+    <style>
+      body {
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+      }
+
+      main {
+        max-width: 70ch;
+        padding: 2ch;
+        margin: auto;
+      }
+
+      .og {
+        color: #ccc;
+        padding-left: 1ch;
+        padding-right: 1ch;
+      }
+
+      .line {
+        padding-left: 1ch;
+        padding-right: 1ch;
+      }
+
+      .loop {
+        border-left: 1ch solid #2ae;
+        border-right: 1ch solid #2ae;
+      }
+
+      .first {
+        border-top: 1ch solid #2ae;
+        border-bottom: 2px solid #2ae;
+      }
+
+      .last {
+        border-bottom: 1ch solid #2ae;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="line">chess is new Chess</div>
+      <br/>
+      <div class="line loop first">loop not chess gameover</div>
+      <div class="line loop">chess moves</div>
+      <div class="line loop">keep move is not "O-O"</div>
+      <div class="line loop">keep move is not "O-O-O"</div>
+      <div class="line loop">choose 1</div>
+      <div class="line loop">is move</div>
+      <div class="line loop last">chess make move</div>
+      <br/>
+      <div class="line">log chess pgn</div>
+
+      <hr/>
+
+      <div class="og">
+      let Chess = require('chess.js').Chess;<br/>
+      let chess = new Chess();<br/><br/>
+
+      while(!chess.game_over()) {<br/>
+        let moves = chess<br/>
+          .moves()<br/>
+          .filter(m => m !== 'O-O')<br/>
+          .filter(m => m !== 'O-O-O');<br/>
+        let move = moves[Math.floor(Math.random() * moves.length)];<br/>
+        chess.move(move);<br/>
+      }<br/>
+      console.log(chess.pgn());
+      </div>
+    </main>
+  </body>
+</html>
